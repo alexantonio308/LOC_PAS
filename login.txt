@@ -1,0 +1,3 @@
+página de administração do django:
+login: admin
+senha: senhaembranco

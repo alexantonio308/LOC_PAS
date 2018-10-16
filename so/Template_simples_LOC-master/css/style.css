@@ -1,0 +1,106 @@
+/*++++++++++++++++RESET+++++++++++++++*/
+
+*{
+	padding: 0;
+	margin: 0;
+	font-family: 'Roboto Slab', serif;
+}
+
+/*++++++++++++++++INICIO HEADER+++++++++++++++*/
+
+header{
+	background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(../img/back2.jpg);
+	height: 100vh;
+	background-size: cover;
+	background-position: center;
+}
+
+ul{
+	font-size: 25px;
+	float: right;
+	list-style-type: none;
+	margin-top: 50px;
+	margin-right: 200px;
+}
+
+ul li{
+	display: inline-block;
+}
+
+ul li a{
+	text-decoration: none;
+	color: #fff;
+	padding: 5px 20px;
+	border: 2px solid transparent;
+	transition: 0.6s ease;
+}
+
+ul li a:hover{
+	background-color: #fff;
+	color: #000;
+}
+
+ul li.atual a{
+	background-color: #fff;
+	color: #000;
+}
+
+.logo img{
+	float: left;
+	width: 200px;
+	height: auto;
+
+}
+
+.header{
+
+	max-width: 1920px;
+	margin: auto;
+}
+
+/*++++++++++++INICIO TEXTO+++++++++++++++++++*/
+
+.title{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.title h1{
+
+	color: #fff;
+	font-size: 80px;
+}
+
+.title p{
+	position: absolute;
+	color: #fff;
+	font-size: 20px;
+	top: 120%;
+	left: 40%;
+	transform: translate(-35%,-50%);
+}
+
+/*++++++++++++INICIO BOTAO+++++++++++++++++++*/
+
+.botao{
+	position: absolute;
+	top: 75%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.btn{
+	border: 2px solid #fff;
+	padding: 10px 30px;
+	color: #fff;
+	text-decoration: none;
+	transition: 0.6s ease;
+}
+
+.btn:hover{
+	background-color: #fff;
+	color: #000;
+
+}

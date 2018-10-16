@@ -1,0 +1,126 @@
+{% load static %}
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style_dash_aluno.css' %}">
+    <title>Bem-vindo, aluno</title>
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script async defer src="https://buttons.githubio/buttons.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <section id="sideMenu">
+        <nav>
+            <a href="/dashboardAluno" class="active"><i class="fa fa-home" aria-hidden="true"></i>Início</a>
+            <a href="/dashboardAluno/notas" class=""><i class="fa fa-sticky-note" aria-hidden="true"></i>Ver notas</a>
+            <a href="/dashboardAluno/disciplinas" class=""><i class="fa fa-map" aria-hidden="true"></i>Ver disciplinas</a>
+            <a href="/dashboardAluno/frequencia" class=""><i class="fa fa-address-book" aria-hidden="true"></i>Frequência</a>
+            <a href="/dashboardAluno/atividades" class=""><i class="fa fa-tasks" aria-hidden="true"></i>Checar atividades</a>
+        </nav>
+    </section>
+    <header>
+        <div class="search-area">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input type="text" name="" value="">
+        </div>
+        <div class="user-area">
+
+            <a href="/logout" class="add"> Sair do Sistema</a>
+            <a href="#" class="notification">
+                <i class="fa fa-bell" aria-hidden="true"></i>
+                <span class="circle">3</span></a>
+                <div class="logo-aluno">
+                    {% for aluno in alunos %}
+                      <h7> Bem vindo, {{aluno.nome}}!</h7>
+                    {% endfor %}
+            </a>
+                </div>
+        </div>
+    </header>
+    <section id="content-area">
+        <div class="heading">
+          <!-- home do dashboardAluno -->
+          {% if exibeInicio == True %}
+            <h1>{{ msg }}</h1>
+            <!-- talvez um if pra imprimir as msg -->
+            {% for aluno in alunos %}
+              <h5>Seu nome: {{aluno.nome}}</h5>
+              <h5>Email: {{aluno.email}}</h5>
+              <h5>Aluno da Instituição: {{aluno.nomeInstituicao}}</h5>
+            {% endfor %}
+          {% endif %}
+
+          <!-- exibe notas -->
+          {% if exibeNotas == True %}
+            <h1>{{ msg }}</h1>
+            <br>
+            <form action="/dashboardAluno/notas" id="notas" method="POST">
+            {% csrf_token %}
+            <select name="notasDisc" form="notas">
+              {% for disciplina in qsDisciplinas %}
+                <option value={{ disciplina.nomeDisciplina }}> {{ disciplina.nomeDisciplina }} </option>
+              {% endfor %}
+            </select>
+            <input type="submit" Enviar>
+            </form>
+          {% endif %}
+
+            {% if exibeNotasDisciplina == True %}
+              <h4>Disciplina: {{ msg2 }}</h4>
+              {% for nota in qsNotas %}
+                Nota 1: {{ nota.nota1 }}
+                <br>
+                Nota 2: {{ nota.nota2 }}
+                <br>
+                Nota 3: {{ nota.nota3 }}
+                <br><br>
+                Média: {{ nota.media }}
+              {% endfor %}
+            {% endif %}
+
+
+
+
+          <!-- exibe disciplinas matriculadas -->
+          {% if exibeDisciplinas == True %}
+            <h1>{{ msg }}</h1>
+            {% for disciplina in disciplinas %}
+              <ul>
+                <li>{{disciplina.nomeDisciplina}}</li>
+              </ul>
+            {% endfor %}
+          {% endif %}
+
+          <!-- exibe frequência do aluno -->
+          {% if exibeFrequencia == True %}
+            <h1>{{ msg }}</h1>
+            <br>
+            <form action="/dashboardAluno/frequencia" id="frequencia" method="POST">
+            {% csrf_token %}
+            <select name="freqDisc" form="frequencia">
+              {% for disciplina in qsDisciplinas %}
+                <option value={{ disciplina.nomeDisciplina }}> {{ disciplina.nomeDisciplina }} </option>
+              {% endfor %}
+            </select>
+            <input type="submit" Enviar>
+            </form>
+          {% endif %}
+
+          {% if exibeFreqDisciplina == True %}
+            <h4>Disciplina: {{ msg2 }}</h4>
+            {% for freq in qsFreqDisciplinas %}
+              {{ freq.data }} | {{ freq.frequencia }}
+              <br>
+            {% endfor %}
+          {% endif %}
+        </div>
+    </section>
+</body>
+
+</html>

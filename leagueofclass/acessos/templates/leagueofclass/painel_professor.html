@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style_dash_aluno.css' %}">
+    <title>Dashboard professor</title>
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script async defer src="https://buttons.githubio/buttons.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <section id="sideMenu">
+        <nav>
+            <a href="/dashboardProfessor" class="active"><i class="fa fa-home" aria-hidden="true"></i>Início</a>
+            <a href="/dashboardProfessor/notas" class=""><i class="fa fa-sticky-note" aria-hidden="true"></i>Cadastrar notas</a>
+            <a href="/dashboardProfessor/disciplina" class=""><i class="fa fa-map" aria-hidden="true"></i>Cadastrar disciplinas</a>
+            <a href="/dashboardProfessor/frequencia" class=""><i class="fa fa-address-book" aria-hidden="true"></i>Lançar frequência</a>
+            <a href="/dashboardProfessor/atividades" class=""><i class="fa fa-tasks" aria-hidden="true"></i>Registrar atividades</a>
+        </nav>
+    </section>
+    <header>
+        <div class="search-area">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input type="text" name="" value="">
+        </div>
+        <div class="user-area">
+            <a href="#" class="add">Bem vindo(a), {{usuario}}</a>
+            <a href="#" class="notification">
+                <i class="fa fa-bell" aria-hidden="true"></i>
+                <span class="circle">3</span></a>
+        </div>
+    </header>
+    <section id="content-area">
+        <div class="heading">
+          <!-- home do dashboardAluno -->
+          {% if exibeInicio == True %}
+            <h1>{{ msg }}</h1>
+            <!-- talvez um if pra imprimir as msg -->
+            {% for prof in professor %}
+              <h5>Seu nome: {{prof.nome}}</h5>
+              <h5>Email: {{prof.email}}</h5>
+              <h5>Aluno da Instituição: {{prof.nomeInstituicao}}</h5>
+            {% endfor %}
+          {% endif %}
+
+          <!-- disciplina que o professor quer cadastrar a nota -->
+          {% if exibeOpcCadNota == True %}
+            <h1>{{ msg }}</h1>
+            <br>
+            <form action="/dashboardProfessor/notas/lancarNotas" id="notas" method="POST">
+            {% csrf_token %}
+            <select name="discEscolhida" form="notas">
+              {% for disciplina in qsDisciplinas %}
+                <option value={{ disciplina.nomeDisciplina }}> {{ disciplina.nomeDisciplina }} </option>
+              {% endfor %}
+            </select>
+            <input type="submit" value='Escolher' name='form1'>
+          </form>
+          {% endif %}
+
+          <!-- Cadastro de Notas -->
+          {% if exibeNotas == True %}
+            <h1>Lançamento de notas da discplina de: {{nomeDisc}}</h1>
+            <form action="" method='POST' id="lancarNotas">
+            {% csrf_token %}
+            <br><br>
+            <label for="disciplina">
+            Disciplina:
+            <select name="disciplina" form="lancarNotas"> <option value="{{ disciplina }}"> {{ disciplina }} </option> </select>
+            </label><br><br>
+            <label for="nome">
+            Aluno:
+            <select name="aluno" form="lancarNotas">
+              {% for aluno in alunos %}
+              <option value="{{ aluno.nome }}"> {{ aluno.nome }} </option>
+              {% endfor %}
+            </select> <br><br>
+            <label for="nota1">
+            Nota1: <input type="number" id="nota1" name="nota1" value= min="0" step="0.01" required><br>
+            </label><br>
+            <label for="nota2">
+            Nota3: <input type="number" id="nota2" name="nota2" value= min="0" step="0.01" required><br>
+            </label><br>
+            <label for="nota3">
+            Nota3: <input type="number" id="nota3" name="nota3" value= min="0" step="0.01" required><br>
+            </label><br>
+            <label for="media">
+            Média: <input type="number" id="media" name="media" value= min="0" step="0.01" required><br>
+            </label><br>
+            <input type="submit" value="Cadastrar" name="form2">
+            </form>
+          {% endif %}
+          <!-- fim cadastro de notas -->
+
+          <!-- lançamento de frequência -->
+          {% if exibeLancaFreq %}
+          <h1> {{msg}} </h1>
+            <label for="nome">
+            Aluno:
+            <select name="aluno" form="lancarNotas">
+              {% for disciplina in qsDisciplina %}
+              <option value="{{ discplina.nomeDiscplina }}"> {{ disciplina.nomeDisciplina }} </option>
+              {% endfor %}
+            </select> <br><br>
+          </label>
+           <label for="data">
+            Data:
+           <input type="date" name="data">
+          </label>
+          <label> <br><br>
+          Disciplina:
+          <select name="aluno" form="lancarNotas">
+            {% for aluno in qSaluno %}
+            <option value="{{ aluno.nome }}"> {{ aluno.nome}} </option>
+            {% endfor %}
+          </select> <br><br>
+          {% endif %}
+          <!-- fim lançamento de frequência -->
+        </div>
+    </section>
+</body>
+
+</html>

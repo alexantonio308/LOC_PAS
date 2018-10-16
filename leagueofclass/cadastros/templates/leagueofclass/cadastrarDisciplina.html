@@ -1,0 +1,72 @@
+{% load static %}
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="A plataforma que você aprende jogando, conheça nossa plataforma iteratica de gamificação">
+	<meta name="author" content="Lucas Aragão">
+	<meta name="viewport" content="width=device-width, inital-scale=1.0">
+	<title>Cadastro de Professor - LOC</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style1.css' %}">
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+    <script type="text/javascript" src="../static/jquery/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../static/jquery/jquery.mask.min.js"></script>
+
+    <script type="text/javascript">
+    <!--responsavel por criar uma mascara para validação do CPF-->
+        $(document).ready(function(){
+            $("#matricula").mask("000000000000");
+        });
+    </script>
+
+</head>
+<body>
+
+
+	<!--Inicio cabeçalho-->
+	<header>
+		<div class="header">
+			<div class="logo">
+				<a href="/home"><img src="{% static 'img_home/logo.png' %}" alt="Logo League of Class"></a>
+			</div> <!--Final logo-->
+			<div class="menu">
+				<div class="nav">
+					<ul>
+						<li><a href="/home">Home</a></li>
+						<li><a href="#">Saiba mais</a></li>
+						<li><a href="#">Contato</a></li>
+					</ul>
+				</div>
+			</div> <!--Final menu-->
+		</div><!--FINAL DO HEADER-->
+	</header>
+
+		<article class="formulario-cadastro">
+
+		<h2 align="center"> <strong> Cadastro de Disciplinas </strong> </h2> <br> <br>
+
+		<div class="formulario"> <!-- Inicio Fomulario -->
+
+			<h2 align="center"> Entre em uma Disciplina </h2> <br> <br>
+			<form method="POST">
+				 {% csrf_token %}
+					{{ form.as_p }}
+			</form>
+			 {% if messages %}
+                <script>
+                {% for message in messages %}
+                    alert(' {{ message }} ')
+                </script>
+                 {% endfor %}
+                {% endif %}
+		</div> <!-- Final formulario -->
+
+	</article>
+
+
+
+</body>
+</html>

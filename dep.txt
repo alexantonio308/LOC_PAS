@@ -1,0 +1,6 @@
+# LEMBRAR
+ - * Foi criado o model da Atividade
+ - * Precisa Criar a front para atividade [v]
+ - * Criar a logica para saber quem é o professor q ta cadastrando a atividade
+ - * E selecionar as perguntas do form;
+
