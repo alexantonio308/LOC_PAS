@@ -1225,3 +1225,152 @@ header .user-area ul ul li a:hover {
     display: block;
     margin-bottom: 0.5rem;
 }
+
+/***********************************************OUTRAS PAGINAS**********OUTRAS PAGINAS***************************************OUTRAS PAGINAS***********************/
+/************************************OUTRAS PAGINAS*****************OUTRAS PAGINAS****************OUTRAS PAGINAS***************************************************/
+
+/********Página de Cadastro de Atividade*****************/
+
+
+
+.formulario-atividades {
+	width: 100%;
+	top: 50%;
+	left: 50%;
+	font-family: 'Montserrat', sans-serif;
+	float: left;
+}
+.formulario-atividades label {
+	display: block;
+	text-align: left;
+	color: #333;
+	text-transform: uppercase;
+	font-size: 18px;
+}
+
+.formulario-atividades input[type="text"]{
+	border: 2px;
+	background: #CDC9C9;
+	height: 30px;
+	width: 500px;
+	color: #333;
+	font-size: 15px;
+	border-radius: 8px;
+	margin-bottom: 10px;
+	
+}
+
+
+.formulario-atividades input[type="submit"] {
+	border: none;
+	outline: none;
+	height: 40px;
+	width: 300px;
+	background: #226699;
+	color: #fff;
+	font-size: 15px;
+	border-radius: 8px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+
+.formulario-atividades input[type="reset"] {
+	border: none;
+	outline: none;
+	height: 40px;
+	width: 300px;
+	background: #226699;
+	color: #fff;
+	font-size: 15px;
+	border-radius: 8px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+
+.formulario-atividades input[type="submit"]:hover {
+	cursor: pointer;
+	background: #2ed573;
+	color: #fff;
+}
+
+.formulario-atividades input[type="reset"]:hover {
+	cursor: pointer;
+	background: #2ed573;
+	color: #fff;
+}
+
+
+
+
+/***********************************************OUTRAS PAGINAS**********OUTRAS PAGINAS***************************************OUTRAS PAGINAS***********************/
+/************************************OUTRAS PAGINAS*****************OUTRAS PAGINAS****************OUTRAS PAGINAS***************************************************/
+
+/********Página de Cadastro de Notas*****************/
+
+
+.tabela-notas{
+	width: 80%;
+	height: 600px;
+	font-family:'Montserrat', sans-serif;
+	text-align: left;
+	font-size: 20px;
+}
+
+.tabela-notas thead {
+  background: #ccc url(https://www.devfuria.com.br/html-css/tabelas/bar.gif) repeat-x left center;
+  border-top: 1px solid #a5a5a5;
+  border-bottom: 1px solid #a5a5a5;
+}
+
+.tabela-notas thead tr:hover {
+  background-color: transparent;
+  color: inherit;
+}
+.tabela-notas tr:nth-child(even) {
+    background-color: #edf5ff;
+}
+.tabela-notas th {
+  font-weight: normal;
+  text-align: left;
+}
+.tabela-notas th, td {
+  padding: 0.1em 1em;
+  cursor: pointer;
+}
+
+.tabela-notas input[type="text"]{
+	border: 2px;
+	background: #DCDCDC;
+	height: 30px;
+	width: 500px;
+	color: #333;
+	font-size: 15px;
+	border-radius: 8px;
+	margin-bottom: 10px;
+	
+}
+
+.btn-notas input[type="submit"]:hover {
+	cursor: pointer;
+	background: #2ed573;
+	color: #fff;
+}
+
+
+.btn-notas input[type="submit"] {
+	border: none;
+	outline: none;
+	height: 40px;
+	width: 300px;
+	background: #226699;
+	color: #fff;
+	font-size: 15px;
+	border-radius: 8px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+
+
+
+
+
