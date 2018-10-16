@@ -16,11 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from cadastros.views import cadastroProfessor,cadastroAtividade
+from cadastros.views import cadastroAluno
+from cadastros.views import createAuthentic
+from acessos.views import *
+from cadastros.views import cadastroDisciplinaAluno
 
-from cadastros.views import cad
-from home.views import home
 
-# URLS PRE DEFINIDAS 
+# URLS PRE DEFINIDAS
 '''
 	# URLS!
 	> /INDEX
@@ -30,6 +33,7 @@ from home.views import home
 	/login
 	/cadastroAluno
 	/cadastroProfessor
+	/escolherPerfil
 	/logout
 	/dashboardProfessor
 	/dashboardAluno
@@ -40,9 +44,21 @@ from home.views import home
 '''
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',home),
-    path('home/',home),
-    path('index/',home),
-    path('cadastroProfessor/',cad)
+    path('escolherPerfil/',chosePerfil),
+    path('', clickMe),
+    path('home/', createAuthentic),
+    path('index/', createAuthentic),
+    path('cadastroProfessor/', cadastroProfessor),
+    path('cadastroAluno/',cadastroAluno),
+    path('dashboardAluno/',acessoAluno),
+    path('dashboardProfessor/',acessoProfessor),
+    path('cadastroAtividade/',cadastroAtividade),
+    path('dashboardAluno/notas', notasAluno),
+    path('dashboardAluno/disciplinas', disciplinasAluno),
+    path('dashboardAluno/frequencia', frequenciaAluno),
+    path('dashboardAluno/atividades', atividadesAluno),
+    path('logout/',logoutUser),
+    path('failUser/',failUserXFF),
+    path('error/',errorXFF)
 
 ]

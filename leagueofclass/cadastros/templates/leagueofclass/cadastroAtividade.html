@@ -1,0 +1,149 @@
+{% load static %}
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>Dashboard Professor</title>
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script async defer src="https://buttons.githubio/buttons.js"></script>
+    <script src="main.js"></script>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Dashboard professor</title>
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script async defer src="https://buttons.githubio/buttons.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <section id="sideMenu">
+        <nav>
+            <a href="/index" class="active"><i class="fa fa-home" aria-hidden="true"></i>Início</a>
+            <a href="" class=""><i class="fa fa-sticky-note" aria-hidden="true"></i>Cadastrar notas</a>
+            <a href="" class=""><i class="fa fa-map" aria-hidden="true"></i>Cadastrar disciplinas</a>
+            <a href="" class=""><i class="fa fa-address-book" aria-hidden="true"></i>Lançar frequência</a>
+            <a href="" class="" ><i class="fa fa-tasks" aria-hidden="true"></i>Registrar atividades</a>
+        </nav>
+    </section>
+    <header>
+        <div class="search-area">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input type="text" name="" value="">
+        </div>
+        <div class="user-area">
+            <a href="#" class="add">Bem vindo(a), professor(a)</a>
+            <a href="#" class="notification">
+                <i class="fa fa-bell" aria-hidden="true"></i>
+                <span class="circle">3</span></a>
+        </div>
+    </header>
+    <section id="content-area">
+        <div class="heading">
+
+            <!-- Cadastro de Atividades -->
+			<form method="POST">
+					{% csrf_token %}
+                <div class="formulario-atividades" >
+                    <fieldset>
+                     <h1>Registrar Atividades</h1>
+                     <table cellspacing="20">
+                      <tr>
+                       <td>
+                        <label >Titulo da Atividade: </label>
+                       </td>
+                       <td align="left">
+                        <input type="text" required="true" id="titulo" name="titulo">
+                       </td>
+                      </tr>
+                      <tr>
+                       <td>
+                        <label >Pergunta</label>
+                       </td>
+                       <td>
+                        <input type="text" required="true" id="pergunta" name="pergunta" >
+                       </td>
+                      </tr>
+                      <tr>
+                       <td>
+                        <label >Alternativa A: </label>
+                       </td>
+                       <td align="left">
+                        <input type="text" required="true" id="alternativa_a" name="alternativa_a">
+                       </td>
+                      </tr>
+                      <tr>
+                       <td>
+                        <label >Alternativa B: </label>
+                       </td>
+                       <td align="left">
+                        <input type="text" required="true" id="alternativa_b" name="alternativa_b">
+                       </td>
+                      </tr>
+						 <tr>
+                       <td>
+                        <label >Alternativa C: </label>
+                       </td>
+                       <td align="left">
+                        <input type="text" required="true" id="alternativa_c" name="alternativa_c">
+                       </td>
+                      </tr>
+						 <tr>
+                       <td>
+                        <label >Alternativa D: </label>
+                       </td>
+                       <td align="left">
+                        <input type="text" required="true" id="alternativa_d" name="alternativa_d">
+                       </td>
+                      </tr>
+
+                      <tr>
+                       <td>
+						   <div class="input-formulario">
+				<label> Alternativa Correta </label> <br> <br>
+				<p> Alternativa A</p>
+				<input type="radio" required name="alternativa_correta" value="A">
+				<p> Alternativa B</p>
+				<input type="radio" required name="alternativa_correta" value="B">
+							   <p> Alternativa C</p>
+				<input type="radio" required name="alternativa_correta" value="C">
+							   <p> Alternativa D</p>
+				<input type="radio" required name="alternativa_correta" value="D">
+
+			</div>
+                       </td>
+                      </tr>
+                     </table>
+                    </fieldset>
+                    <br/>
+                   <div class="btn-formulario">
+				<input type="submit" name="" value="Lançar">
+				</div>
+				</div>
+				</form>
+			<div>
+			 {% if messages %}
+                <script>
+                {% for message in messages %}
+                    alert(' {{ message }} ')
+                </script>
+                 {% endfor %}
+                {% endif %}
+                </div>
+
+        </div>
+    </section>
+</body>
+
+</html>
